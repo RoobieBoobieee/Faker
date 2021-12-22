@@ -31,7 +31,7 @@ final class PaymentTest extends TestCase
         self::assertEquals(10, $len);
         self::assertStringStartsWith('0', $numbers);
 
-        // Mod97 check on last nine digits
+        // Mod97 check on first 8 digits
         $checksum = 97 - fmod(substr($numbers, 0, 8), 97);
 
         self::assertEquals((string) $checksum, substr($numbers, 8, 10));
